@@ -8,7 +8,7 @@ class Npc:
         self.id = id
         self.name = name
         self.family = family
-        self.inventory = [...item]
+        self.inventory = [item]
         self.work = work
         self.skills = skills
         
@@ -16,7 +16,7 @@ class Npc:
         return print(f' Номер Персонажа - {self.id}\n',
                      f'Имя персонажа - {self.name}\n',
                      f'Родственники - {self.family.relationship_level[0]}, {self.family.name}\n',
-                     f'Инвентарь - {self.inventory.print_info()}\n',
+                     f'Инвентарь - {[[it.print_info() for it in item] for item in self.inventory]}\n',
                      f'Должность - {self.work.position}\n',
                      f'Спец. способность - {self.skills.skill}')
 
@@ -26,7 +26,8 @@ def main():
     Shorts = Wear('Шорты', 10, True, 'Хлопок', 4, False)
     Stolyar = Work('Столяр', 'Столярная мастерская', 'Мастер')
     skill = Skill('Fire')
-    npc = Npc(1, 'Stepa', Anton, Shorts, Stolyar, skill)
+    npc = Npc(1, 'Stepa', Anton, Bow, Stolyar, skill)
+    npc = Npc(1, 'Stepa', Anton, [Bow, Shorts], Stolyar, skill)
     npc.print_info()
     pass
 
