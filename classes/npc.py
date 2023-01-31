@@ -4,11 +4,11 @@ from work import Work
 from skills import Skill
 
 class Npc:
-    def __init__(self, id:int, name:str, family:Family, inventory:Item, work:Work, skills:Skill):    
+    def __init__(self, id:int, name:str, family:Family, item:Item, work:Work, skills:Skill):    
         self.id = id
         self.name = name
         self.family = family
-        self.inventory = inventory
+        self.inventory = [...item]
         self.work = work
         self.skills = skills
         
